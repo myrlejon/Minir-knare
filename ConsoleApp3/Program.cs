@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace ConsoleApp3
+namespace Miniräknare
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine();
         }
     }
 }
