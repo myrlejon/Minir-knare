@@ -6,6 +6,10 @@ namespace Miniräknare
     {
         static void Main(string[] args)
         {
+            //Den totala summan av allt som har räknats ihop.
+            int totalsum = 0;
+            int firstSum = 0;
+
             //Operatorer, här kan användaren skriva in +, -, *, / osv.
             Console.WriteLine("Enter first operator: ");
             string firstOperator = Console.ReadLine();
@@ -14,7 +18,7 @@ namespace Miniräknare
             Console.WriteLine("Enter second operator: ");
             string secondOperator = Console.ReadLine();
             //int secondOperatorInt = Convert.ToInt32(secondOperator);
-            
+
             //Termer, här kan användaren skriva in tal.
             Console.WriteLine("Enter first term: ");
             string firstTerm = Console.ReadLine();
@@ -28,21 +32,19 @@ namespace Miniräknare
             string thirdTerm = Console.ReadLine();
             int thirdTermInt = Convert.ToInt32(thirdTerm);
 
-            if (firstOperator == "+" || secondOperator == "+")
+            if (firstOperator == "+")
             {
-                int summa = firstTermInt + secondTermInt + thirdTermInt;
-                Console.WriteLine(summa);
-                if (summa < 100) {
-                    Console.WriteLine("The sum is less than a hundred.");
-                }
-                else if (summa > 100)
-                {
-                    Console.WriteLine("The sum is more than a hundred.");
-                }
-                else if (summa == 100)
-                {
-                    Console.WriteLine("The sum is exactly one hundred. Clap clap!");
-                }
+                firstSum = firstTermInt + secondTermInt;
+            }
+            else if (firstOperator == "-")
+            {
+                firstSum = firstTermInt - secondTermInt;
+            }
+            if (secondOperator == "+")
+            {
+                int localsum = 0;
+                localsum = firstSum + thirdTermInt;
+                Console.WriteLine(localsum);
             }
         }
     }
