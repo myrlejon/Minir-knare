@@ -10,81 +10,99 @@ namespace Miniräknare
             int totalsum = 0;
             int firstSum = 0;
 
-            //Operatorer, här kan användaren skriva in +, -, *, / osv.
-            Console.WriteLine("Enter first operator: ");
-            string firstOperator = Console.ReadLine();
-            //int firstOperatorInt = Convert.ToInt32(firstOperator);
+            bool quit = false;
 
-            Console.WriteLine("Enter second operator: ");
-            string secondOperator = Console.ReadLine();
-            //int secondOperatorInt = Convert.ToInt32(secondOperator);
+            while (quit == false)
+            {
 
-            //Termer, här kan användaren skriva in tal.
-            Console.WriteLine("Enter first term: ");
-            string firstTerm = Console.ReadLine();
-            int firstTermInt = Convert.ToInt32(firstTerm);
+                //Operatorer, här kan användaren skriva in +, -, *, / osv.
+                Console.WriteLine("Enter first operator: ");
+                string firstOperator = Console.ReadLine();
+                //int firstOperatorInt = Convert.ToInt32(firstOperator);
 
-            Console.WriteLine("Enter second term: ");
-            string secondTerm = Console.ReadLine();
-            int secondTermInt = Convert.ToInt32(secondTerm);
+                Console.WriteLine("Enter second operator: ");
+                string secondOperator = Console.ReadLine();
+                //int secondOperatorInt = Convert.ToInt32(secondOperator);
 
-            Console.WriteLine("Enter third term: ");
-            string thirdTerm = Console.ReadLine();
-            int thirdTermInt = Convert.ToInt32(thirdTerm);
+                //Termer, här kan användaren skriva in tal.
+                Console.WriteLine("Enter first term: ");
+                string firstTerm = Console.ReadLine();
+                int firstTermInt = Convert.ToInt32(firstTerm);
 
-            // Detta kodblocket räknar ut de två summorna till vänster först, eftersom det är så man gör när man räknar med tre termer. Ex. (x + x) - x
-            if (firstOperator == "+")
-            {
-                firstSum = firstTermInt + secondTermInt;
-            }
-            else if (firstOperator == "-")
-            {
-                firstSum = firstTermInt - secondTermInt;
-            }
-            else if (firstOperator == "*")
-            {
-                firstSum = firstTermInt * secondTermInt;
-            }
-            else if (firstOperator == "/")
-            {
-                firstSum = firstTermInt / secondTermInt;
-            }
-            else if (firstOperator == "%")
-            {
-                firstSum = firstTermInt % secondTermInt;
+                Console.WriteLine("Enter second term: ");
+                string secondTerm = Console.ReadLine();
+                int secondTermInt = Convert.ToInt32(secondTerm);
+
+                Console.WriteLine("Enter third term: ");
+                string thirdTerm = Console.ReadLine();
+                int thirdTermInt = Convert.ToInt32(thirdTerm);
+
+
+                // Detta kodblocket räknar ut de två summorna till vänster först, eftersom det är så man gör när man räknar med tre termer. Ex. (x + x) - x
+                if (firstOperator == "+")
+                {
+                    firstSum = firstTermInt + secondTermInt;
+                }
+                else if (firstOperator == "-")
+                {
+                    firstSum = firstTermInt - secondTermInt;
+                }
+                else if (firstOperator == "*")
+                {
+                    firstSum = firstTermInt * secondTermInt;
+                }
+                else if (firstOperator == "/")
+                {
+                    firstSum = firstTermInt / secondTermInt;
+                }
+                else if (firstOperator == "%")
+                {
+                    firstSum = firstTermInt % secondTermInt;
+                }
+
+                // Detta kodblocket jobbar tillsammans med det förgående.
+                if (secondOperator == "+")
+                {
+                    int localsum = 0;
+                    localsum = firstSum + thirdTermInt;
+                    Console.WriteLine(localsum);
+                }
+                if (secondOperator == "-")
+                {
+                    int localsum = 0;
+                    localsum = firstSum - thirdTermInt;
+                    Console.WriteLine(localsum);
+                }
+                if (secondOperator == "*")
+                {
+                    int localsum = 0;
+                    localsum = firstSum * thirdTermInt;
+                    Console.WriteLine(localsum);
+                }
+                if (secondOperator == "/")
+                {
+                    int localsum = 0;
+                    localsum = firstSum / thirdTermInt;
+                    Console.WriteLine(localsum);
+                }
+                if (secondOperator == "%")
+                {
+                    int localsum = 0;
+                    localsum = firstSum % thirdTermInt;
+                    Console.WriteLine(localsum);
+                }
+
+                Console.WriteLine("Do you want to continue? Y/N");
+                string decision = Console.ReadLine();
+                if (decision == "N")
+                {
+                    quit = true;
+                    Console.WriteLine(totalsum);
+                }
+                
+
             }
 
-            // Detta kodblocket jobbar tillsammans med det förgående.
-            if (secondOperator == "+")
-            {
-                int localsum = 0;
-                localsum = firstSum + thirdTermInt;
-                Console.WriteLine(localsum);
-            }
-            if (secondOperator == "-")
-            {
-                int localsum = 0;
-                localsum = firstSum - thirdTermInt;
-                Console.WriteLine(localsum);
-            }
-            if (secondOperator == "*")
-            {
-                int localsum = 0;
-                localsum = firstSum * thirdTermInt;
-                Console.WriteLine(localsum);
-            }
-            if (secondOperator == "/")
-            {
-                int localsum = 0;
-                localsum = firstSum / thirdTermInt;
-                Console.WriteLine(localsum);
-            }
-            if (secondOperator == "%")
-            {
-                int localsum = 0;
-                localsum = firstSum % thirdTermInt;
-                Console.WriteLine(localsum);
-            }
         }
     }
 }
