@@ -8,6 +8,12 @@ namespace Miniräknare
     {
         static void Main(string[] args)
         {
+            //Här så ändrar jag titel och färg på konsollen.
+            Console.Title = "Calculator";
+            Console.BackgroundColor = ConsoleColor.Cyan;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Clear();
+
             // Den totala summan av allt som har räknats ihop.
             int firstSum = 0;
             int localsum = 0;
