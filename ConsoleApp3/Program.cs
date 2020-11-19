@@ -32,6 +32,7 @@ namespace Miniräknare
             string thirdTerm = Console.ReadLine();
             int thirdTermInt = Convert.ToInt32(thirdTerm);
 
+            // Detta kodblocket räknar ut de två summorna till vänster först, eftersom det är så man gör när man räknar med tre termer. Ex. (x + x) - x
             if (firstOperator == "+")
             {
                 firstSum = firstTermInt + secondTermInt;
@@ -40,10 +41,48 @@ namespace Miniräknare
             {
                 firstSum = firstTermInt - secondTermInt;
             }
+            else if (firstOperator == "*")
+            {
+                firstSum = firstTermInt * secondTermInt;
+            }
+            else if (firstOperator == "/")
+            {
+                firstSum = firstTermInt / secondTermInt;
+            }
+            else if (firstOperator == "%")
+            {
+                firstSum = firstTermInt % secondTermInt;
+            }
+
+            // Detta kodblocket jobbar tillsammans med det förgående.
             if (secondOperator == "+")
             {
                 int localsum = 0;
                 localsum = firstSum + thirdTermInt;
+                Console.WriteLine(localsum);
+            }
+            if (secondOperator == "-")
+            {
+                int localsum = 0;
+                localsum = firstSum - thirdTermInt;
+                Console.WriteLine(localsum);
+            }
+            if (secondOperator == "*")
+            {
+                int localsum = 0;
+                localsum = firstSum * thirdTermInt;
+                Console.WriteLine(localsum);
+            }
+            if (secondOperator == "/")
+            {
+                int localsum = 0;
+                localsum = firstSum / thirdTermInt;
+                Console.WriteLine(localsum);
+            }
+            if (secondOperator == "%")
+            {
+                int localsum = 0;
+                localsum = firstSum % thirdTermInt;
                 Console.WriteLine(localsum);
             }
         }
