@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Miniräknare
 {
@@ -18,14 +19,12 @@ namespace Miniräknare
             while (quit == false)
             {
 
-                //Operatorer, här kan användaren skriva in +, -, *, / osv.
+                //Operatorer, här kan användaren skriva in +, -, *, /, %
                 Console.WriteLine("Enter first operator: ");
                 string firstOperator = Console.ReadLine();
-                //int firstOperatorInt = Convert.ToInt32(firstOperator);
 
                 Console.WriteLine("Enter second operator: ");
                 string secondOperator = Console.ReadLine();
-                //int secondOperatorInt = Convert.ToInt32(secondOperator);
 
                 //Termer, här kan användaren skriva in tal.
                 Console.WriteLine("Enter first term: ");
@@ -69,100 +68,47 @@ namespace Miniräknare
                     int localsum = 0;
                     localsum = firstSum + thirdTermInt;
                     totalSum.Add(localsum);
-                    Console.WriteLine(localsum);
-                    if (localsum < 100)
-                    {
-                        Console.WriteLine("Less than a hundred.");
-                    }
-                    else if (localsum > 100)
-                    {
-                        Console.WriteLine("More than a hundred.");
-                    }
-                    else if (localsum == 100)
-                    {
-                        Console.WriteLine("Exactly one hundred.");
-                    }
+                    Console.WriteLine(firstTermInt + " " + firstOperator + " " + secondTermInt + " " + secondOperator + " " + thirdTermInt + " = " + localsum);
                 }
                 if (secondOperator == "-")
                 {
                     int localsum = 0;
                     localsum = firstSum - thirdTermInt;
-                    Console.WriteLine(localsum);
-                    if (localsum < 100)
-                    {
-                        Console.WriteLine("Less than a hundred.");
-                    }
-                    else if (localsum > 100)
-                    {
-                        Console.WriteLine("More than a hundred.");
-                    }
-                    else if (localsum == 100)
-                    {
-                        Console.WriteLine("Exactly one hundred.");
-                    }
+                    totalSum.Add(localsum);
+                    Console.WriteLine(firstTermInt + " " + firstOperator + " " + secondTermInt + " " + secondOperator + " " + thirdTermInt + " = " + localsum);
                 }
                 if (secondOperator == "*")
                 {
                     int localsum = 0;
                     localsum = firstSum * thirdTermInt;
-                    Console.WriteLine(localsum);
-                    if (localsum < 100)
-                    {
-                        Console.WriteLine("Less than a hundred.");
-                    }
-                    else if (localsum > 100)
-                    {
-                        Console.WriteLine("More than a hundred.");
-                    }
-                    else if (localsum == 100)
-                    {
-                        Console.WriteLine("Exactly one hundred.");
-                    }
+                    totalSum.Add(localsum);
+                    Console.WriteLine(firstTermInt + " " + firstOperator + " " + secondTermInt + " " + secondOperator + " " + thirdTermInt + " = " + localsum);
+
                 }
                 if (secondOperator == "/")
                 {
                     int localsum = 0;
                     localsum = firstSum / thirdTermInt;
-                    Console.WriteLine(localsum);
-                    if (localsum < 100)
-                    {
-                        Console.WriteLine("Less than a hundred.");
-                    }
-                    else if (localsum > 100)
-                    {
-                        Console.WriteLine("More than a hundred.");
-                    }
-                    else if (localsum == 100)
-                    {
-                        Console.WriteLine("Exactly one hundred.");
-                    }
+                    totalSum.Add(localsum);
+                    Console.WriteLine(firstTermInt + " " + firstOperator + " " + secondTermInt + " " + secondOperator + " " + thirdTermInt + " = " + localsum);
                 }
                 if (secondOperator == "%")
                 {
                     int localsum = 0;
                     localsum = firstSum % thirdTermInt;
-                    Console.WriteLine(localsum);
-                    if (localsum < 100)
-                    {
-                        Console.WriteLine("Less than a hundred.");
-                    }
-                    else if (localsum > 100)
-                    {
-                        Console.WriteLine("More than a hundred.");
-                    }
-                    else if (localsum == 100)
-                    {
-                        Console.WriteLine("Exactly one hundred.");
-                    }
+                    totalSum.Add(localsum);
+                    Console.WriteLine(firstTermInt + " " + firstOperator + " " + secondTermInt + " " + secondOperator + " " + thirdTermInt + " = " + localsum);
                 }
 
-                i++;
                 Console.WriteLine("Do you want to continue? Y/N");
                 string decision = Console.ReadLine();
                 if (decision == "N")
                 {
                     quit = true;
-                    Console.WriteLine(totalSum[i]);
+                    int totalSumEnd = totalSum.Sum();
+                    Console.WriteLine("The total sum of everything you have calculated: " + (string.Join(" + ", totalSum)) + " = " + totalSumEnd);
+                    Console.WriteLine("Enter any key to close the application.");
+                    Console.ReadLine();
                 }
                 
 
@@ -171,3 +117,16 @@ namespace Miniräknare
         }
     }
 }
+
+//if (localsum < 100)
+//{
+//    Console.WriteLine("Less than a hundred.");
+//}
+//else if (localsum > 100)
+//{
+//    Console.WriteLine("More than a hundred.");
+//}
+//else if (localsum == 100)
+//{
+//    Console.WriteLine("Exactly one hundred.");
+//}
