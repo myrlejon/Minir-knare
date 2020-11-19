@@ -8,10 +8,10 @@ namespace Miniräknare
         static void Main(string[] args)
         {
             //Den totala summan av allt som har räknats ihop.
-            int totalsum = 0;
             int firstSum = 0;
+            int i = 0;
 
-
+            List<int> totalSum = new List<int>();
 
             bool quit = false;
 
@@ -68,6 +68,7 @@ namespace Miniräknare
                 {
                     int localsum = 0;
                     localsum = firstSum + thirdTermInt;
+                    totalSum.Add(localsum);
                     Console.WriteLine(localsum);
                     if (localsum < 100)
                     {
@@ -154,14 +155,14 @@ namespace Miniräknare
                         Console.WriteLine("Exactly one hundred.");
                     }
                 }
-                
 
+                i++;
                 Console.WriteLine("Do you want to continue? Y/N");
                 string decision = Console.ReadLine();
                 if (decision == "N")
                 {
                     quit = true;
-                    Console.WriteLine(totalsum);
+                    Console.WriteLine(totalSum[i]);
                 }
                 
 
